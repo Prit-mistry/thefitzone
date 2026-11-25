@@ -1,0 +1,557 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitZone | Fitness Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="layout">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h2 class="logo">FIT<span>ZONE.</span></h2>
+
+            <p class="menu-title">MENU</p>
+
+            <nav>
+                <a href="#home" class="nav-link active">⌂ Dashboard</a>
+                <a href="#workouts" class="nav-link">▣ Workouts</a>
+                <a href="#muscles" class="nav-link">◈ Exercises</a>
+                <a href="#tools" class="nav-link">▤ BMI Calculator</a>
+                <a href="#planner" class="nav-link">▦ Planner</a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <p>YOUR FITNESS JOURNEY</p>
+                <h3>Stay Consistent.</h3>
+                <p class="muted">Small steps create big progress.</p>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content" id="home">
+
+            <header class="topbar">
+                <div>
+                    <p class="muted">YOUR FITNESS SPACE</p>
+                    <h2>Dashboard</h2>
+                </div>
+
+                <div class="profile">
+                    <div class="profile-icon">F</div>
+                    <span>FitZone Member</span>
+                </div>
+            </header>
+
+            <!-- Welcome Section -->
+            <section class="welcome">
+                <div class="welcome-content">
+                    <p class="green-text">WELCOME TO FITZONE</p>
+                    <h1>BUILD YOUR<br>STRONGER SELF.</h1>
+                    <p>
+                        Discover exercises, plan your workouts
+                        and keep track of your fitness journey.
+                    </p>
+                    <a href="#workouts" class="primary-btn">
+                        Explore Workouts →
+                    </a>
+                </div>
+                <div class="welcome-decoration">
+                    <span>FIT</span>
+                    <strong>ZONE</strong>
+                </div>
+            </section>
+
+            <!-- Statistics -->
+            <section class="stats">
+                <div class="stat-card">
+                    <span>📚</span>
+                    <p>Exercise Library</p>
+                    <h2>34</h2>
+                    <small>Exercises to explore</small>
+                </div>
+
+                <div class="stat-card">
+                    <span>💪</span>
+                    <p>Muscle Groups</p>
+                    <h2>08</h2>
+                    <small>Training categories</small>
+                </div>
+
+                <div class="stat-card">
+                    <span>📅</span>
+                    <p>Workout Plans</p>
+                    <h2>07</h2>
+                    <small>Weekly schedule options</small>
+                </div>
+
+                <div class="stat-card">
+                    <span>⚡</span>
+                    <p>Stay Active</p>
+                    <h2>100%</h2>
+                    <small>Your journey starts today</small>
+                </div>
+            </section>
+
+            <!-- Workout Section -->
+            <section class="section" id="workouts">
+                <div class="section-heading">
+                    <div>
+                        <p class="green-text">TRAIN SMARTER</p>
+                        <h2>Featured Workouts</h2>
+                    </div>
+                    <a href="#muscles">View All →</a>
+                </div>
+
+                <div class="workout-grid">
+
+                    <div class="workout-card">
+                        <div class="workout-image chest">
+                            <span>CHEST</span>
+                        </div>
+                        <div class="workout-info">
+                            <h3>Chest Workout</h3>
+                            <p>Build strength with chest exercises.</p>
+                            <button onclick="showMessage('Chest Workout')">
+                                Explore Workout →
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="workout-card">
+                        <div class="workout-image back">
+                            <span>BACK</span>
+                        </div>
+                        <div class="workout-info">
+                            <h3>Back Workout</h3>
+                            <p>Explore back training exercises.</p>
+                            <button onclick="showMessage('Back Workout')">
+                                Explore Workout →
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="workout-card">
+                        <div class="workout-image legs">
+                            <span>LEGS</span>
+                        </div>
+                        <div class="workout-info">
+                            <h3>Leg Workout</h3>
+                            <p>Discover lower-body exercises.</p>
+                            <button onclick="showMessage('Leg Workout')">
+                                Explore Workout →
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            
+<!-- EXERCISE LIBRARY -->
+<section class="section" id="muscles">
+
+    <div class="section-heading">
+        <div>
+            <p class="green-text">TRAIN EVERY MUSCLE</p>
+            <h2>Exercise Library</h2>
+        </div>
+        <span class="exercise-count" id="exerciseCount">34 Exercises</span>
+    </div>
+
+    <!-- Search -->
+    <div class="exercise-controls">
+        <input
+            type="text"
+            id="searchExercise"
+            placeholder="Search exercises..."
+        >
+
+        <select id="equipmentFilter">
+            <option value="all">All Equipment</option>
+            <option value="Dumbbell">Dumbbell</option>
+            <option value="Barbell">Barbell</option>
+            <option value="Machine">Machine</option>
+            <option value="Cable">Cable</option>
+            <option value="Bodyweight">Bodyweight</option>
+        </select>
+    </div>
+
+    <!-- Muscle Group Buttons -->
+    <div class="muscle-grid" id="muscleFilters">
+        <button class="muscle-filter active" data-muscle="All">All</button>
+        <button class="muscle-filter" data-muscle="Chest">Chest</button>
+        <button class="muscle-filter" data-muscle="Back">Back</button>
+        <button class="muscle-filter" data-muscle="Shoulders">Shoulders</button>
+        <button class="muscle-filter" data-muscle="Biceps">Biceps</button>
+        <button class="muscle-filter" data-muscle="Triceps">Triceps</button>
+        <button class="muscle-filter" data-muscle="Legs">Legs</button>
+        <button class="muscle-filter" data-muscle="Abs">Abs</button>
+        <button class="muscle-filter" data-muscle="Calves">Calves</button>
+    </div>
+
+    <!-- Exercise Cards -->
+    <div class="exercise-grid" id="exerciseList"></div>
+
+    <p class="no-results" id="noResults" hidden>
+        No exercises found. Try another search.
+    </p>
+
+</section>
+
+<!-- EXERCISE DETAILS POPUP -->
+<div class="modal" id="exerciseModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+
+    <div class="modal-content">
+
+        <button class="close-modal" id="closeModal" aria-label="Close">&times;</button>
+
+        <p class="green-text">EXERCISE DETAILS</p>
+        <h2 id="modalTitle">Exercise Name</h2>
+
+        <div class="modal-tags">
+            <span id="modalMuscle"></span>
+            <span id="modalEquipment"></span>
+        </div>
+
+        <!-- EXERCISE DEMONSTRATION -->
+        <div class="exercise-demonstration">
+
+            <div class="demo-image-container">
+                <h3>Exercise Image</h3>
+                <img id="modalImage" src="" alt="Exercise demonstration" loading="lazy">
+            </div>
+
+            <div class="demo-video-container">
+                <h3>Video Demonstration</h3>
+                <div class="video-wrapper">
+                    <iframe
+                        id="modalVideo"
+                        src=""
+                        title="Exercise video demonstration"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <div id="videoFallback" class="video-fallback" hidden>
+                    <span class="video-fallback-icon">▶</span>
+                    <p id="videoFallbackText">Video unavailable.</p>
+                </div>
+                <a id="videoSearchLink" class="video-search-link" href="#" target="_blank" rel="noopener">
+                    Video not loading? Search on YouTube →
+                </a>
+            </div>
+
+        </div>
+
+        <div class="modal-section">
+            <h3>How to perform</h3>
+            <ol id="modalInstructions" class="instruction-list"></ol>
+        </div>
+
+        <div class="modal-section">
+            <h3>Breathing</h3>
+            <p id="modalBreathing"></p>
+        </div>
+
+        <div class="modal-section">
+            <h3>Common mistakes</h3>
+            <ul id="modalMistakes"></ul>
+        </div>
+
+        <div class="exercise-detail-grid">
+            <div class="exercise-plan">
+                <small>Suggested Sets</small>
+                <h2 id="modalSets">3</h2>
+            </div>
+
+            <div class="exercise-plan">
+                <small>Suggested Reps</small>
+                <h2 id="modalReps">8-12</h2>
+            </div>
+        </div>
+
+        <p class="modal-note">
+            These are general starting suggestions, not a personalized
+            training prescription. Adjust to your ability and use proper form.
+        </p>
+
+    </div>
+</div>
+
+
+<!-- FITNESS CALCULATORS -->
+<section class="section" id="tools">
+
+    <div class="section-heading">
+        <div>
+            <p class="green-text">KNOW YOUR NUMBERS</p>
+            <h2>Fitness Calculators</h2>
+        </div>
+    </div>
+
+    <div class="calculator-layout">
+
+        <!-- BMI CALCULATOR -->
+        <div class="calculator-card">
+
+            <p class="green-text">BODY MASS INDEX</p>
+            <h2>BMI Calculator</h2>
+
+            <p class="calculator-description">
+                Enter your details to calculate your BMI.
+            </p>
+
+            <form id="bmiForm">
+
+                <label for="age">Age (years)</label>
+                <input
+                    type="number"
+                    id="age"
+                    placeholder="Enter your age"
+                    min="2"
+                    max="120"
+                    required
+                >
+
+                <label for="height">Height (cm)</label>
+                <input
+                    type="number"
+                    id="height"
+                    placeholder="Example: 170"
+                    min="50"
+                    max="250"
+                    step="0.1"
+                    required
+                >
+
+                <label for="weight">Weight (kg)</label>
+                <input
+                    type="number"
+                    id="weight"
+                    placeholder="Example: 65"
+                    min="2"
+                    max="500"
+                    step="0.1"
+                    required
+                >
+
+                <button type="submit" class="calculate-btn">
+                    Calculate BMI →
+                </button>
+
+            </form>
+
+            <div id="bmiResult" class="calculator-result" hidden>
+                <p class="green-text">YOUR BMI RESULT</p>
+
+                <h2 id="bmiValue">0.0</h2>
+
+                <h3 id="bmiCategory"></h3>
+
+                <p id="bmiMessage"></p>
+
+                <button type="button" id="resetBMI" class="reset-btn">
+                    Calculate Again
+                </button>
+            </div>
+
+        </div>
+
+        <!-- INFORMATION CARD -->
+        <div class="calculator-card info-card">
+
+            <p class="green-text">FITNESS KNOWLEDGE</p>
+
+            <h2>Understand Your BMI</h2>
+
+            <p>
+                BMI is a screening measurement calculated using
+                height and weight. It is not a direct measurement
+                of body fat or overall fitness.
+            </p>
+
+            <div class="info-item">
+                <span>01</span>
+                <div>
+                    <h3>Height</h3>
+                    <p>Measured in centimetres (cm).</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <span>02</span>
+                <div>
+                    <h3>Weight</h3>
+                    <p>Measured in kilograms (kg).</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <span>03</span>
+                <div>
+                    <h3>Age</h3>
+                    <p>Important for interpreting BMI correctly.</p>
+                </div>
+            </div>
+
+            <div class="health-note">
+                <strong>Important health note</strong>
+                <p>
+                    For children and teenagers aged 2–19, BMI
+                    must be interpreted using age- and
+                    sex-specific growth charts. An adult BMI
+                    category should not be used.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+<!-- WORKOUT PLANNER -->
+<section class="section" id="planner">
+
+    <div class="section-heading">
+        <div>
+            <p class="green-text">PLAN YOUR TRAINING</p>
+            <h2>Weekly Workout Planner</h2>
+        </div>
+        <span class="exercise-count">YOUR SCHEDULE</span>
+    </div>
+
+    <!-- WEEKLY PROGRESS -->
+    <div class="planner-progress">
+        <div>
+            <p>Weekly completion</p>
+            <h2 id="weeklyCount">0 / 7 days</h2>
+        </div>
+
+        <div class="progress-track">
+            <div id="weeklyBar"></div>
+        </div>
+
+        <span id="weeklyPercentage">0%</span>
+    </div>
+
+    <!-- DAY SELECTOR -->
+    <h3 class="planner-subtitle">Select Training Day</h3>
+
+    <div class="day-selector" id="daySelector">
+        <button class="day-btn active" data-day="Monday">Mon</button>
+        <button class="day-btn" data-day="Tuesday">Tue</button>
+        <button class="day-btn" data-day="Wednesday">Wed</button>
+        <button class="day-btn" data-day="Thursday">Thu</button>
+        <button class="day-btn" data-day="Friday">Fri</button>
+        <button class="day-btn" data-day="Saturday">Sat</button>
+        <button class="day-btn" data-day="Sunday">Sun</button>
+    </div>
+
+    <!-- SELECTED DAY -->
+    <div class="selected-day-card">
+
+        <div class="section-heading">
+            <div>
+                <p class="green-text">YOUR SELECTED DAY</p>
+                <h2 id="selectedDayTitle">Monday</h2>
+            </div>
+            <span id="dayStatus" class="day-status">Not completed</span>
+        </div>
+
+        <div class="workout-list" id="workoutList"></div>
+
+        <p id="emptyWorkout" class="empty-workout">
+            No exercises added yet. Add your first exercise below.
+        </p>
+
+        <button class="complete-day-btn" id="completeDayBtn">
+            ✓ Mark Day Completed
+        </button>
+    </div>
+
+    <!-- ADD EXERCISE -->
+    <div class="add-workout-card">
+
+        <p class="green-text">CUSTOMIZE YOUR TRAINING</p>
+        <h2>Add Exercise</h2>
+
+        <form id="workoutForm">
+
+            <label for="exerciseName">Exercise Name</label>
+            <input
+                type="text"
+                id="exerciseName"
+                placeholder="Example: Bench Press"
+                maxlength="60"
+                required
+            >
+
+            <div class="planner-input-grid">
+
+                <div>
+                    <label for="exerciseSets">Sets</label>
+                    <input
+                        type="number"
+                        id="exerciseSets"
+                        min="1"
+                        max="10"
+                        value="3"
+                        required
+                    >
+                </div>
+
+                <div>
+                    <label for="exerciseReps">Reps</label>
+                    <input
+                        type="text"
+                        id="exerciseReps"
+                        value="8-12"
+                        maxlength="20"
+                        required
+                    >
+                </div>
+
+            </div>
+
+            <button type="submit" class="calculate-btn">
+                + Add to Workout
+            </button>
+
+        </form>
+
+    </div>
+
+    <p class="planner-note">
+        Your workout plan is saved in this browser. Clearing browser
+        storage or changing devices may remove your saved plan.
+    </p>
+
+</section>
+
+
+
+            
+
+
+            <footer>
+                <h3>FIT<span>ZONE.</span></h3>
+                <p>Train Smart. Stay Consistent. Keep Learning.</p>
+                <small>© 2026 FitZone. All rights reserved.</small>
+            </footer>
+
+        </main>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
